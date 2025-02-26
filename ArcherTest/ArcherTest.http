@@ -1,0 +1,6 @@
+@ArcherTest_HostAddress = http://localhost:5282
+
+GET {{ArcherTest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

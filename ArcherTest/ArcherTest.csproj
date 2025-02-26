@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\src\Rin.Extensions.EntityFrameworkCore\Rin.Extensions.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\src\Rin.Mvc\Rin.Mvc.csproj" />
+        <ProjectReference Include="..\src\Rin.Storage.Redis\Rin.Storage.Redis.csproj" />
+        <ProjectReference Include="..\src\Rin\Rin.csproj" />
+    </ItemGroup>
+</Project>
