@@ -112,7 +112,7 @@ namespace Rin.Middlewares
             {
                 Id = Guid.NewGuid().ToString(),
                 IsHttps = request.IsHttps,
-                Host = request.Host.Value,
+                Host = request.Host.Value??"",
                 QueryString = request.QueryString.Value,
                 Path = request.Path,
                 Method = request.Method,
@@ -130,7 +130,7 @@ namespace Rin.Middlewares
             await _eventBus.PostAsync(new RequestEventMessage(EventSourceName, record, RequestEvent.BeginRequest));
 
             // Set a current Rin request ID to response header.
-            context.Response.Headers.Add("X-Rin-Request-Id", record.Id);
+            context.Response.Headers.Append("X-Rin-Request-Id", record.Id);
 
             if (options.RequestRecorder.EnableBodyCapturing)
             {

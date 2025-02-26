@@ -1,20 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="MessagePack" Version="2.2.60" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.1" />
 
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Rin.Extensions.EntityFrameworkCore\Rin.Extensions.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\src\Rin.Extensions.Log4NetAppender\Rin.Extensions.Log4NetAppender.csproj" />
     <ProjectReference Include="..\..\src\Rin.Mvc\Rin.Mvc.csproj" />
     <ProjectReference Include="..\..\src\Rin.Storage.Redis\Rin.Storage.Redis.csproj" />
     <ProjectReference Include="..\..\src\Rin\Rin.csproj" />

@@ -28,7 +28,7 @@ namespace Rin.Hubs.Payloads
             }
 
             var payloadBody = body;
-            var payloadBodyContentType = string.Empty;
+            string payloadBodyContentType = string.Empty;
             var transformedBodyContentType = string.Empty;
             if (headers != null && headers.TryGetValue("Content-Type", out var contentType))
             {
@@ -40,7 +40,7 @@ namespace Rin.Hubs.Payloads
                 }
                 else
                 {
-                    payloadBodyContentType = contentType;
+                    payloadBodyContentType = contentType.ToString();
                 }
             }
 

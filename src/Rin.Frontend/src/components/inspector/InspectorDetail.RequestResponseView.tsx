@@ -235,13 +235,16 @@ function EditorPreview(props: {
 
     // force re-layout
     editor?.layout();
+    editor?.getAction('editor.action.formatDocument').run()
+    editor?.trigger('anyString', 'editor.action.formatDocument', null)
 
     return () => window.removeEventListener('resize', listener);
   }, [editor, props.paneResizeToken]);
 
   const monacoOptions: monacoEditor.editor.IEditorConstructionOptions = {
-    readOnly: true,
+    readOnly: false,
     automaticLayout: true,
+    autoIndent: "full",
     wordWrap: 'on',
   };
 

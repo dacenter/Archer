@@ -17,8 +17,7 @@ namespace HelloRin
         public static void Main(string[] args)
         {
             // Configure log4net
-            log4net.Config.XmlConfigurator.Configure(log4net.LogManager.GetRepository(Assembly.GetEntryAssembly()), new FileInfo("log4net.config"));
-
+            
             CreateHostBuilder(args).Build().Run();
         }
 

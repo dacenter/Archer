@@ -79,7 +79,7 @@ namespace Rin.Channel
             {
                 if (result.Count != 0)
                 {
-                    memoryStream.Write(buffer, 0, result.Count);
+                    await memoryStream.WriteAsync(buffer.AsMemory(0, result.Count));
                 }
                 if (result.EndOfMessage)
                 {

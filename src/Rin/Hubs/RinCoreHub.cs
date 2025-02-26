@@ -34,7 +34,7 @@ namespace Rin.Hubs
         {
             var result = await _storage.TryGetDetailByIdAsync(id);
 
-            return (result.Succeed && result.Value != null)
+            return result is { Succeed: true, Value: not null }
                 ? new RequestRecordDetailPayload(result.Value)
                 : null;
         }

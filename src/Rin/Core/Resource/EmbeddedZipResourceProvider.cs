@@ -39,7 +39,7 @@ namespace Rin.Core.Resource
                 // for SPA (+ rewrite paths in HTML)
                 else if (
                     context.Request.Headers.TryGetValue("Accept", out var acceptHeaders) &&
-                    acceptHeaders.Any(x => x.Contains("text/html")) &&
+                    acceptHeaders.Any(x =>x!=null&& x.Contains("text/html")) &&
                     Resources.TryOpen("index.html", out resourceStream, out contentType)
                 )
                 {
@@ -63,7 +63,7 @@ namespace Rin.Core.Resource
             context.Response.StatusCode = 200;
             context.Response.ContentType = contentType;
 
-            if (context.Request.Headers.TryGetValue("accept-encoding", out var headerValues) && headerValues.Any(x => x.Contains("gzip")))
+            if (context.Request.Headers.TryGetValue("accept-encoding", out var headerValues) && headerValues.Any(x =>x is not null && x.Contains("gzip")))
             {
                 context.Response.Headers["Content-Encoding"] = "gzip";
                 using (var outputStream = new GZipStream(new ForceAsyncStreamWrapper(context.Response.Body), CompressionLevel.Fastest, true))

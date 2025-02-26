@@ -48,5 +48,9 @@ namespace Rin.IO
         {
             return _pipeWriter.FlushAsync(cancellationToken);
         }
+
+        public override long UnflushedBytes => _pipeWriter.UnflushedBytes;
+
+        public override bool CanGetUnflushedBytes => _pipeWriter.CanGetUnflushedBytes;
     }
 }
